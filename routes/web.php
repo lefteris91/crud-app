@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonsController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+// Display all Persons
+Route::get('/',[PersonsController::class,'display']);
+// Create a Person
+Route::get('/add',[PersonsController::class,'showCreateForm']);
+Route::post('/add',[PersonsController::class,'createPerson']);
