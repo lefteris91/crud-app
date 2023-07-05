@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class PersonsController extends Controller
 {
     public function display(){
-        return view('index'); 
+        $persons = Persons::all();
+        return view('index', ['persons' => $persons]);
     }
     public function showCreateForm(){
         return view('add');

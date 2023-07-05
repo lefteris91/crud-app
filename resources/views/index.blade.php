@@ -8,6 +8,13 @@
 </head>
 <body>
     <h1>hello from blade</h1>
+    @foreach($persons as $person)
+    <p>Name: {{ $person->name }}</p>
+    <p>Surname: {{ $person->surname }}</p>
+    <!-- Display other attributes as needed -->
+@endforeach
+
+
     <a href="/add">+ADD</a>
 </body>
 </html>
