@@ -8,13 +8,18 @@ use Illuminate\Http\Request;
 class PersonsController extends Controller
 {
     public function display(){
+        
         $persons = Persons::all();
         return view('index', ['persons' => $persons]);
     }
+
     public function showCreateForm(){
+
         return view('add');
     }
+
     public function createPerson(Request $request){
+
         $incomingFields = $request->validate([
             'name'=> 'required',
             'surname'=> 'required'
