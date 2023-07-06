@@ -16,13 +16,14 @@ use App\Http\Controllers\PersonsController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 // Display all Persons
 Route::get('/',[PersonsController::class,'display']);
 // Create a Person
 Route::get('/add',[PersonsController::class,'showCreateForm']);
 Route::post('/add',[PersonsController::class,'createPerson']);
-Route::delete('/delete/{person}', [PersonsController::class, 'deletePerson'])->name('person.delete');
+// delete a person
+Route::delete('/delete/{person}', [PersonsController::class, 'deletePerson']);
+// update a person
+Route::get('/edit/{person}', [PersonsController::class, 'displayPerson']);
+Route::put('/update/{person}', [PersonsController::class, 'personUpdate']);
 
