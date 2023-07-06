@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class PersonsController extends Controller
 {
+    public function deletePerson(Persons $person)
+        {
+            $person->delete();
+            return redirect('/');
+        }
+
     public function display(){
         
         $persons = Persons::all();
@@ -27,6 +33,6 @@ class PersonsController extends Controller
         $incomingFields['name'] = strip_tags($incomingFields['name']);
         $incomingFields['surname'] = strip_tags($incomingFields['surname']);
         Persons::create($incomingFields);
-        return view('index');
+        return redirect('/');
     }
 }

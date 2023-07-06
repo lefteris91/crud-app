@@ -24,3 +24,5 @@ Route::get('/',[PersonsController::class,'display']);
 // Create a Person
 Route::get('/add',[PersonsController::class,'showCreateForm']);
 Route::post('/add',[PersonsController::class,'createPerson']);
+Route::delete('/delete/{person}', [PersonsController::class, 'deletePerson'])->name('person.delete');
+
