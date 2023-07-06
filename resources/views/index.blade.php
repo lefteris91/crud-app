@@ -13,17 +13,11 @@
     @foreach($persons as $person)
         <p>Name: {{ $person->name }}</p>
         <p>Surname: {{ $person->surname }}</p>
-        <span class="pt-2">
-            <a href="{{ route('person.delete', ['person' => $person->id]) }}" class="text-primary mr-2" data-toggle="tooltip" data-placement="top" title="Edit">
-                <i class="fas fa-edit"></i>
-            </a>
-            <form class="delete-post-form d-inline" action="{{ route('person.delete', ['person' => $person->id]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="delete-post-button text-danger" data-toggle="tooltip" data-placement="top" title="Delete">DELETE</button>
-            </form>
-        </span>        
-        
+        <form class="delete-post-form d-inline" action="{{ route('person.delete', ['person' => $person->id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="delete-post-button text-danger">DELETE</button>
+        </form>
         <a href="/update/{{$person->id}}">EDIT</a>
     @endforeach
     <a href="/add">+ADD</a>
