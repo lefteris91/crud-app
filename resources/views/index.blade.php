@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="" rel="stylesheet">
-
-</head>
+<x-head>
+</x-head>
 <body>
-    <h1>hello from blade</h1>
+    <h1>Person's List App</h1>
     @foreach($persons as $person)
+    <div class="container">
         <p>Name: {{ $person->name }}</p>
         <p>Surname: {{ $person->surname }}</p>
         <form class="delete-post-form d-inline" action="/delete/{{$person->id}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="delete-post-button text-danger">DELETE</button>
+            <button type="submit" class="btn btn-danger">DELETE</button>
         </form>
-        <a href="/edit/{{$person->id}}">EDIT</a>
+        <a href="/edit/{{$person->id}}" class="btn btn-success">EDIT</a>
+    </div>
     @endforeach
-    <a href="/add">+ADD</a>
+    <a href="/add" class="btn btn-primary">+ADD</a>
 </body>
 </html>

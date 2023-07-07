@@ -1,0 +1,15 @@
+a{
+    text-decoration: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+body{
+    text-align: center;
+    background-color: bisque;
+}
+.container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: 400;
+}
